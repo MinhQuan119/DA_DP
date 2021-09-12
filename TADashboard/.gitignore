@@ -1,0 +1,5 @@
+/test-output/Report*
+/screenshots/
+.idea
+*.iml
+/target/
