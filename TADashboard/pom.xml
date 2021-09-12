@@ -26,7 +26,7 @@
         </plugins>
         <testResources>
             <testResource>
-                <directory>${project.basedir}/${resource.directory}</directory>
+                <directory>src/test/resources</directory>
             </testResource>
         </testResources>
     </build>
