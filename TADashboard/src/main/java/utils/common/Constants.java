@@ -3,8 +3,7 @@ package utils.common;
 import utils.helper.PropertiesHelper;
 
 public class Constants {
-    public static final int SHORT_TIME_WAIT = 1;
-    public static final int LONG_TIME_WAIT = 10;
+    public static final String USER_NAME = "administrator";
 
     // Common Constants
     public static final String BROWSER_SETTING_FILE = "src/test/resources/browsers.setting.ini";

@@ -5,22 +5,22 @@ import com.logigear.control.common.imp.Link;
 import utils.common.Constants;
 
 public class DataProfilesPage {
-    private CheckBox inFrontCheckBox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/preceding-sibling::td/input");
-    private Link dataProfileLink = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']");
-    private Link actionLink = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/following-sibling::td[count(//table[@class='GridView']/tbody/tr/th)-2]");
+    private CheckBox dynamicCheckBox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/preceding-sibling::td/input");
+    private Link dynamicDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']");
+    private Link dynamicAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/following-sibling::td[count(//table[@class='GridView']/tbody/tr/th)-2]");
 
     public String getTextOfAction(String string) {
-        actionLink.setDynamicValue(string);
-        return actionLink.getText();
+        dynamicAction.setDynamicValue(string);
+        return dynamicAction.getText();
     }
 
     public void clickOnPreSetDataProfile(String string) {
-        dataProfileLink.setDynamicValue(string);
-        dataProfileLink.click();
+        dynamicDataProfile.setDynamicValue(string);
+        dynamicDataProfile.click();
     }
 
     public boolean isCheckBoxDisplayed(String string) {
-        inFrontCheckBox.setDynamicValue(string);
-        return inFrontCheckBox.isVisible(Constants.SHORT_TIME_OUT);
+        dynamicCheckBox.setDynamicValue(string);
+        return dynamicCheckBox.isVisible(Constants.SHORT_TIME_OUT);
     }
 }

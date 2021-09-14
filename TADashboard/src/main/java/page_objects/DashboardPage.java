@@ -12,7 +12,7 @@ public class DashboardPage {
         return lblWelcome.isVisible();
     }
 
-    public void clickDataProfilesLink() {
+    public void navigateToDataProfiles() {
         lnkAdminister.click();
         lnkDataProfiles.click();
     }

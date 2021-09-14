@@ -17,10 +17,10 @@ public class PositiveDPTests extends BaseTest {
     @Test(description = "Verify that all Pre-set Data Profiles are populated correctly")
     public void tc066_PreSetDataProfilesArePopulatedCorrectly() {
         Logger.step("Login with a valid user");
-        loginPage.login("administrator", "");
+        loginPage.login(Constants.USER_NAME, "");
 
         Logger.step("Go to Data Profiles page.");
-        dashboardPage.clickDataProfilesLink();
+        dashboardPage.navigateToDataProfiles();
 
         for (int i = 0; i < Constants.PRE_SET_DATA_PROFILES.length; i++) {
             Logger.step("Verify that Edit and Delete are not displayed at " + Constants.PRE_SET_DATA_PROFILES[i]);
