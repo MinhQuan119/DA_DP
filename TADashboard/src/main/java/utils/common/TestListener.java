@@ -11,29 +11,29 @@ import java.util.UUID;
 
 public class TestListener implements ITestListener {
 
-	public void onTestFailure(ITestResult result) {
-		String path = DriverUtils
-				.captureScreenshot(UUID.randomUUID().toString(), "screenshots");
+    public void onTestFailure(ITestResult result) {
+        String path = DriverUtils
+                .captureScreenshot(UUID.randomUUID().toString(), "screenshots");
 
-		if (!path.isEmpty()) {
-			String script = Common.screenshotURI(path);
-			Reporter.log(script);
-			new File(path).delete();
-		}
-	}
+        if (!path.isEmpty()) {
+            String script = Common.screenshotURI(path);
+            Reporter.log(script);
+            new File(path).delete();
+        }
+    }
 
-	public void onTestSkipped(ITestResult result) {
-		String path = DriverUtils
-				.captureScreenshot(UUID.randomUUID().toString(), "screenshots");
+    public void onTestSkipped(ITestResult result) {
+        String path = DriverUtils
+                .captureScreenshot(UUID.randomUUID().toString(), "screenshots");
 
-		if (!path.isEmpty()) {
-			String script = Common.screenshotURI(path);
-			Reporter.log(script);
-			new File(path).delete();
-		}
-	}
+        if (!path.isEmpty()) {
+            String script = Common.screenshotURI(path);
+            Reporter.log(script);
+            new File(path).delete();
+        }
+    }
 
-	public void onStart(ITestContext context) {
-		System.setProperty("org.uncommons.reportng.escape-output", "false");
-	}
+    public void onStart(ITestContext context) {
+        System.setProperty("org.uncommons.reportng.escape-output", "false");
+    }
 }
