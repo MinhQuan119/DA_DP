@@ -18,8 +18,4 @@ public class GeneralSettingsPage {
     public String getAlertText() {
         return DriverUtils.getWebDriver().switchTo().alert().getText();
     }
-
-    public void clickOKInAlert() {
-        DriverUtils.acceptAlert();
-    }
 }
