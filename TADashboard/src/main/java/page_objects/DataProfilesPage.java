@@ -14,7 +14,7 @@ public class DataProfilesPage {
         return dynamicAction.getText();
     }
 
-    public void clickOnPreSetDataProfile(String string) {
+    public void clickOnDataProfile(String string) {
         dynamicDataProfile.setDynamicValue(string);
         dynamicDataProfile.click();
     }

@@ -28,7 +28,7 @@ public class PositiveDPTests extends BaseTest {
             Assert.assertNotEquals(dataProfilesPage.getTextOfAction(Constants.PRE_SET_DATA_PROFILES[i]), "Delete", "Delete is available");
 
             Logger.step(String.format("Verify that %s is not clickable.", Constants.PRE_SET_DATA_PROFILES[i]));
-            dataProfilesPage.clickOnPreSetDataProfile(Constants.PRE_SET_DATA_PROFILES[i]);
+            dataProfilesPage.clickOnDataProfile(Constants.PRE_SET_DATA_PROFILES[i]);
 
             Logger.step(String.format("Verify that in front of %s does not have a checkbox.", Constants.PRE_SET_DATA_PROFILES[i]));
             Assert.assertFalse(dataProfilesPage.isCheckBoxDisplayed(Constants.PRE_SET_DATA_PROFILES[i]), "Checkbox has displayed in front of pre-set data profile.");
