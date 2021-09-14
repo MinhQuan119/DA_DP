@@ -17,13 +17,13 @@ public class NegativeGeneralSettingsTest extends BaseTest {
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
     DashboardPage dashboardPage = new DashboardPage();
 
-    @Test(description = "Verify that user is unable to proceed to next step or finish creating data profile if  Name field is left empty")
+    @Test(description = "Verify that user is unable to proceed to next step or finish creating data profile if 'Name*' field is left empty")
     public void tc069_UserIsUnableToProceedToNextStepOrFinishCreatingDataProfileIfNameFieldIsEmpty() {
         Logger.step("Login with a valid user");
         loginPage.login(Constants.USERNAME, "");
 
         Logger.step("navigate to data profile page");
-        dashboardPage.clickDataProfilesLink();
+        dashboardPage.clickDataProfilesLink(dataProfilesPage);
 
         Logger.step("Click Add new link");
         dataProfilesPage.clickAddNewLink();
