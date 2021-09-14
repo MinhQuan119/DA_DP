@@ -28,18 +28,18 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         dataProfilesPage.clickLnkAddNew();
 
         Logger.step("click next button");
-        generalSettingsPage.clickBtnNext();
+        generalSettingsPage.clickNextButton();
 
         Logger.verify("Verify that dialog message is display");
-        Assert.assertEquals(generalSettingsPage.isAlertVisible(), "Please input profile name.", "Dialog message doesn't displayed");
+        Assert.assertEquals(generalSettingsPage.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
 
         Logger.step("Click Ok in alert");
         generalSettingsPage.clickOKInAlert();
 
         Logger.step("Click finish button");
-        generalSettingsPage.clickBtnFinish();
+        generalSettingsPage.clickFinishButton();
 
         Logger.verify("Verify that dialog message is display");
-        Assert.assertEquals(generalSettingsPage.isAlertVisible(), "Please input profile name.", "Dialog message doesn't displayed");
+        Assert.assertEquals(generalSettingsPage.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
     }
 }
