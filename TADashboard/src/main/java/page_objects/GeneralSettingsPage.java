@@ -7,15 +7,15 @@ public class GeneralSettingsPage {
     private Button btnNext = new Button("css=input[value='Next']");
     private Button btnFinish = new Button("css=input[value='Finish']");
 
-    public void clickBtnNext() {
+    public void clickNextButton() {
         btnNext.click();
     }
 
-    public void clickBtnFinish() {
+    public void clickFinishButton() {
         btnFinish.click();
     }
 
-    public String isAlertVisible() {
+    public String getAlertText() {
         return DriverUtils.getWebDriver().switchTo().alert().getText();
     }
 
