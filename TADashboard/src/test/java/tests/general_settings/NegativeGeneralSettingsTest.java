@@ -1,2 +1,44 @@
-package tests.general_settings;public class NegativeGeneralSettingsTest {
+package tests.general_settings;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import page_objects.DashboardPage;
+import page_objects.DataProfilesPage;
+import page_objects.GeneralSettingsPage;
+import page_objects.LoginPage;
+import tests.BaseTest;
+import utils.helper.Logger;
+
+public class NegativeGeneralSettingsTest extends BaseTest {
+    GeneralSettingsPage generalSettingsPage = new GeneralSettingsPage();
+    LoginPage loginPage = new LoginPage();
+    DataProfilesPage dataProfilesPage = new DataProfilesPage();
+    DashboardPage dashboardPage = new DashboardPage();
+
+    @Test(description = "Verify that user is unable to proceed to next step or finish creating data profile if  \"Name *\" field is left empty")
+    public void tc069_UserIsUnableToProceedToNextStepOrFinishCreatingDataProfileIfNameFieldIsEmpty() {
+        Logger.step("Login with a valid user");
+        loginPage.login("administrator", "");
+
+        Logger.step("navigate to data profile page");
+        dashboardPage.clickLnkDataProfiles();
+
+        Logger.step("Click Add new link");
+        dataProfilesPage.clickLnkAddNew();
+
+        Logger.step("click next button");
+        generalSettingsPage.clickBtnNext();
+
+        Logger.verify("Verify that dialog message is display");
+        Assert.assertEquals(generalSettingsPage.isAlertVisible(), "Please input profile name.", "Dialog message doesn't displayed");
+
+        Logger.step("Click Ok in alert");
+        generalSettingsPage.clickOKInAlert();
+
+        Logger.step("Click finish button");
+        generalSettingsPage.clickBtnFinish();
+
+        Logger.verify("Verify that dialog message is display");
+        Assert.assertEquals(generalSettingsPage.isAlertVisible(), "Please input profile name.", "Dialog message doesn't displayed");
+    }
 }
