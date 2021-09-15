@@ -1,9 +1,10 @@
 package page_objects;
 
+import base_pages.BasePage;
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.TextBox;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     private TextBox txtUsername = new TextBox("id=username");
     private TextBox txtPassword = new TextBox("id=password");
     private Button btnLogin = new Button("class=btn-login");
