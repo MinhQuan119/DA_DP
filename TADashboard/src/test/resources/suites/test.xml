@@ -8,7 +8,7 @@
     <test name="Run Chrome Local">
         <parameter name="Browser" value="chrome.local" />
         <classes>
-            <class name="tests.data_profiles.PositiveDPTests"></class>
+            <class name="tests.login.PositiveLoginTests"></class>
         </classes>
     </test>
 </suite>
