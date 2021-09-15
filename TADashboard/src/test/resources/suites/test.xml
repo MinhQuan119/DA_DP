@@ -8,7 +8,13 @@
     <test name="Run Chrome Local">
         <parameter name="Browser" value="chrome.local" />
         <classes>
-            <class name="tests.login.PositiveLoginTests"></class>
+            <class name="tests.general_settings.NegativeGeneralSettingsTest"></class>
+        </classes>
+    </test>
+    <test name="Run Firefox Local">
+        <parameter name="Browser" value="firefox.local" />
+        <classes>
+            <class name="tests.general_settings.NegativeGeneralSettingsTest"></class>
         </classes>
     </test>
 </suite>
