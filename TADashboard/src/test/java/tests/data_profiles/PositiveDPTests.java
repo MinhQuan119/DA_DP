@@ -23,14 +23,14 @@ public class PositiveDPTests extends BaseTest {
         dashboardPage.selectAdministerMenu("Data Profiles");
 
         for (int i = 0; i < Constants.PRE_SET_DATA_PROFILES.length; i++) {
-            Logger.step("Verify that Edit and Delete are not displayed at " + Constants.PRE_SET_DATA_PROFILES[i]);
+            Logger.verify("Verify that Edit and Delete are not displayed at " + Constants.PRE_SET_DATA_PROFILES[i]);
             Assert.assertNotEquals(dataProfilesPage.getTextOfAction(Constants.PRE_SET_DATA_PROFILES[i]), "Edit", "Edit is available");
             Assert.assertNotEquals(dataProfilesPage.getTextOfAction(Constants.PRE_SET_DATA_PROFILES[i]), "Delete", "Delete is available");
 
-            Logger.step(String.format("Verify that %s is not clickable.", Constants.PRE_SET_DATA_PROFILES[i]));
+            Logger.verify(String.format("Verify that %s is not clickable.", Constants.PRE_SET_DATA_PROFILES[i]));
             dataProfilesPage.clickOnDataProfile(Constants.PRE_SET_DATA_PROFILES[i]);
 
-            Logger.step(String.format("Verify that in front of %s does not have a checkbox.", Constants.PRE_SET_DATA_PROFILES[i]));
+            Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", Constants.PRE_SET_DATA_PROFILES[i]));
             Assert.assertFalse(dataProfilesPage.isCheckBoxDisplayed(Constants.PRE_SET_DATA_PROFILES[i]), "Checkbox has displayed in front of pre-set data profile.");
         }
     }
