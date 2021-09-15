@@ -28,12 +28,4 @@ public class BasePage {
     public boolean doesAdministerLabelDisplay() {
         return lblAdminister.isVisible();
     }
-
-    public String getAlertText() {
-        return DriverUtils.getAlertText();
-    }
-
-    public void clickOkOnAlert() {
-        DriverUtils.acceptAlert();
-    }
 }

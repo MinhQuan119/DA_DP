@@ -9,18 +9,18 @@ public class DataProfilesPage extends BasePage {
     private Link dynamicDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']");
     private Link dynamicAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/following::td[@class='center']/a/parent::td");
 
-    public String getTextOfAction(String string) {
-        dynamicAction.setDynamicValue(string.replace(" ", " "));
+    public String getTextOfAction(String action) {
+        dynamicAction.setDynamicValue(action.replace(" ", " "));
         return dynamicAction.getText();
     }
 
-    public void clickOnDataProfile(String string) {
-        dynamicDataProfile.setDynamicValue(string.replace(" ", " "));
+    public void clickOnDataProfile(String dataProfile) {
+        dynamicDataProfile.setDynamicValue(dataProfile.replace(" ", " "));
         dynamicDataProfile.click();
     }
 
-    public boolean isCheckBoxDisplayed(String string) {
-        dynamicCheckbox.setDynamicValue(string.replace(" ", " "));
+    public boolean isCheckBoxDisplayed(String checkbox) {
+        dynamicCheckbox.setDynamicValue(checkbox.replace(" ", " "));
         return dynamicCheckbox.isVisible(Constants.SHORT_TIME_OUT);
     }
 }
