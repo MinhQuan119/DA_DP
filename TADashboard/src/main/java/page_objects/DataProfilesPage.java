@@ -4,15 +4,16 @@ import com.logigear.control.common.imp.Link;
 
 public class DataProfilesPage {
     private Link lnkAddNew = new Link("css=div[class='panel_tag2'] a[href='profile.jsp?action=create']");
-    private Link lnkDataProfiles = new Link("css=li>ul>li>a[href='profiles.jsp']");
+    private Link dynamicAdministerMenu = new Link("xpath=//ul[@id='ulAdminister']/li/a[text()='%s']");
     private Link lnkAdminister = new Link("css=a[href='#Administer']");
 
     public void clickAddNewLink(){
         lnkAddNew.click();
     }
 
-    public void navigateToDataProfiles() {
+    public void selectAdministerMenu(String pageName) {
         lnkAdminister.click();
-        lnkDataProfiles.click();
+        dynamicAdministerMenu.setDynamicValue(pageName);
+        dynamicAdministerMenu.click();
     }
 }
