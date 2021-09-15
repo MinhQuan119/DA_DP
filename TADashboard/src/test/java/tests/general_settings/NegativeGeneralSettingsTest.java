@@ -21,7 +21,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         loginPage.login(Constants.USERNAME, "");
 
         Logger.step("navigate to data profile page");
-        dataProfilesPage.selectInAdministerMenu("Data Profiles");
+        dataProfilesPage.selectAdministerMenu("Data Profiles");
 
         Logger.step("Click Add new link");
         dataProfilesPage.clickAddNewLink();
