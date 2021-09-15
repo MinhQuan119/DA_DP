@@ -10,6 +10,25 @@ import utils.common.Constants;
 import utils.helper.Logger;
 
 public class PositiveDPTests extends BaseTest {
+    private final String[] PRE_SET_DATA_PROFILES = {
+            "Action Implementation By Status",
+            "Test Case Execution",
+            "Test Case Execution Failure Trend",
+            "Test Case Execution History",
+            "Test Case Execution Results",
+            "Test Case Execution Trend",
+            "Test Module Execution",
+            "Test Module Execution Failure Trend",
+            "Test Module Execution History",
+            "Test Module Execution Results",
+            "Test Module Execution Results Report",
+            "Test Module Execution Trend",
+            "Test Module Implementation By Priority",
+            "Test Module Implementation By Status",
+            "Test Module Status per Assigned Users",
+            "Test Objective Execution",
+    };
+
     LoginPage loginPage = new LoginPage();
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
     DashboardPage dashboardPage = new DashboardPage();
@@ -22,16 +41,16 @@ public class PositiveDPTests extends BaseTest {
         Logger.step("Go to Data Profiles page.");
         dashboardPage.selectAdministerMenu("Data Profiles");
 
-        for (int i = 0; i < Constants.PRE_SET_DATA_PROFILES.length; i++) {
-            Logger.verify("Verify that Edit and Delete are not displayed at " + Constants.PRE_SET_DATA_PROFILES[i]);
-            Assert.assertNotEquals(dataProfilesPage.getTextOfAction(Constants.PRE_SET_DATA_PROFILES[i]), "Edit", "Edit is available");
-            Assert.assertNotEquals(dataProfilesPage.getTextOfAction(Constants.PRE_SET_DATA_PROFILES[i]), "Delete", "Delete is available");
+        for (int i = 0; i < PRE_SET_DATA_PROFILES.length; i++) {
+            Logger.verify("Verify that Edit and Delete are not displayed at " + PRE_SET_DATA_PROFILES[i]);
+            Assert.assertNotEquals(dataProfilesPage.getTextOfAction(PRE_SET_DATA_PROFILES[i]), "Edit", "Edit is available");
+            Assert.assertNotEquals(dataProfilesPage.getTextOfAction(PRE_SET_DATA_PROFILES[i]), "Delete", "Delete is available");
 
-            Logger.verify(String.format("Verify that %s is not clickable.", Constants.PRE_SET_DATA_PROFILES[i]));
-            dataProfilesPage.clickOnPresetDataProfile(Constants.PRE_SET_DATA_PROFILES[i]);
+            Logger.verify(String.format("Verify that %s is not clickable.", PRE_SET_DATA_PROFILES[i]));
+            dataProfilesPage.clickOnPresetDataProfile(PRE_SET_DATA_PROFILES[i]);
 
-            Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", Constants.PRE_SET_DATA_PROFILES[i]));
-            Assert.assertFalse(dataProfilesPage.isPresetCheckBoxDisplayed(Constants.PRE_SET_DATA_PROFILES[i]), "Checkbox has displayed in front of pre-set data profile.");
+            Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", PRE_SET_DATA_PROFILES[i]));
+            Assert.assertFalse(dataProfilesPage.isPresetCheckBoxDisplayed(PRE_SET_DATA_PROFILES[i]), "Checkbox has displayed in front of pre-set data profile.");
         }
     }
 }
