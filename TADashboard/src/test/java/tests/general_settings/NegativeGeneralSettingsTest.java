@@ -3,7 +3,6 @@ package tests.general_settings;
 import com.logigear.driver.DriverUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import page_objects.DashboardPage;
 import page_objects.DataProfilesPage;
 import page_objects.GeneralSettingsPage;
 import page_objects.LoginPage;
@@ -15,7 +14,6 @@ public class NegativeGeneralSettingsTest extends BaseTest {
     GeneralSettingsPage generalSettingsPage = new GeneralSettingsPage();
     LoginPage loginPage = new LoginPage();
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
-    DashboardPage dashboardPage = new DashboardPage();
 
     @Test(description = "Verify that user is unable to proceed to next step or finish creating data profile if 'Name*' field is left empty")
     public void tc069_UserIsUnableToProceedToNextStepOrFinishCreatingDataProfileIfNameFieldIsEmpty() {
@@ -23,7 +21,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         loginPage.login(Constants.USERNAME, "");
 
         Logger.step("navigate to data profile page");
-        dataProfilesPage.selectAdministerMenu("data profiles");
+        dataProfilesPage.navigateToDataProfiles();
 
         Logger.step("Click Add new link");
         dataProfilesPage.clickAddNewLink();
