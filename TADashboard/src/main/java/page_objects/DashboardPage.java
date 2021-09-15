@@ -9,5 +9,4 @@ public class DashboardPage {
     public boolean doesWelcomeLabelDisplay() {
         return lblWelcome.isVisible();
     }
-
 }
