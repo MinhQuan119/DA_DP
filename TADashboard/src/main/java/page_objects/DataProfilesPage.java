@@ -10,7 +10,8 @@ public class DataProfilesPage {
     public void clickAddNewLink(){
         lnkAddNew.click();
     }
-    public void selectAdministerMenu(String string) {
+
+    public void navigateToDataProfiles() {
         lnkAdminister.click();
         lnkDataProfiles.click();
     }
