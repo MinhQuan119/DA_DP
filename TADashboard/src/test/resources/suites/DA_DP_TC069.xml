@@ -2,19 +2,27 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite" thread-count="1" parallel="false">
     <listeners>
-        <listener class-name="org.uncommons.reportng.HTMLReporter" />
-        <listener class-name="utils.common.TestListener" />
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="utils.common.TestListener"/>
     </listeners>
     <test name="Run Chrome Local">
-        <parameter name="Browser" value="chrome.local" />
+        <parameter name="Browser" value="chrome.local"/>
         <classes>
-            <class name="tests.general_settings.NegativeGeneralSettingsTest"></class>
+            <class name="tests.general_settings.NegativeGeneralSettingsTest">
+                <methods>
+                    <include name="tc069_UserIsUnableToProceedToNextStepOrFinishCreatingDataProfileIfNameFieldIsEmpty"/>
+                </methods>
+            </class>
         </classes>
     </test>
     <test name="Run Firefox Local">
-        <parameter name="Browser" value="firefox.local" />
+        <parameter name="Browser" value="firefox.local"/>
         <classes>
-            <class name="tests.general_settings.NegativeGeneralSettingsTest"></class>
+            <class name="tests.general_settings.NegativeGeneralSettingsTest">
+                <methods>
+                    <include name="tc069_UserIsUnableToProceedToNextStepOrFinishCreatingDataProfileIfNameFieldIsEmpty"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
