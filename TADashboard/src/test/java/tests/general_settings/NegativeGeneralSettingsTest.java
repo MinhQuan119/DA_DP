@@ -23,7 +23,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         loginPage.login(Constants.USERNAME, "");
 
         Logger.step("navigate to data profile page");
-        dashboardPage.selectAdministerMenu(dataProfilesPage);
+        generalSettingsPage.selectAdministerMenu(dataProfilesPage);
 
         Logger.step("Click Add new link");
         dataProfilesPage.clickAddNewLink();
@@ -32,7 +32,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         generalSettingsPage.clickNextButton();
 
         Logger.verify("Verify that dialog message is display");
-        Assert.assertEquals(generalSettingsPage.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
+        Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
 
         Logger.step("Click Ok in alert");
         DriverUtils.acceptAlert();
@@ -41,6 +41,6 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         generalSettingsPage.clickFinishButton();
 
         Logger.verify("Verify that dialog message is display");
-        Assert.assertEquals(generalSettingsPage.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
+        Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
     }
 }
