@@ -9,11 +9,12 @@ public class DataProfilesPage extends BasePage {
     private CheckBox dynamicNonPresetCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td/a[text()='%s']/parent::td/preceding-sibling::td/input");
     private Link dynamicPresetDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']");
     private Link dynamicNonPresetDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td/a[text()='%s']");
-    private Link dynamicAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/following-sibling::td[@class='center']/a/parent::td");
+    private Link dynamicPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/following-sibling::td[@class='center']/a/parent::td");
+    private Link dynamicNonPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td/a[text()='%s']/parent::td/following-sibling::td[@class='center']/a/parent::td");
 
-    public String getTextOfAction(String action) {
-        dynamicAction.setDynamicValue(action.replace(" ", " "));
-        return dynamicAction.getText();
+    public String getTextOfPresetAction(String action) {
+        dynamicPresetAction.setDynamicValue(action.replace(" ", " "));
+        return dynamicPresetAction.getText();
     }
 
     public void clickOnPresetDataProfile(String dataProfile) {

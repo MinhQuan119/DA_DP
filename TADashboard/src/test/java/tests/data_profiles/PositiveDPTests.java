@@ -43,8 +43,8 @@ public class PositiveDPTests extends BaseTest {
 
         for (int i = 0; i < PRE_SET_DATA_PROFILES.length; i++) {
             Logger.verify("Verify that Edit and Delete are not displayed at " + PRE_SET_DATA_PROFILES[i]);
-            Assert.assertNotEquals(dataProfilesPage.getTextOfAction(PRE_SET_DATA_PROFILES[i]), "Edit", "Edit is available");
-            Assert.assertNotEquals(dataProfilesPage.getTextOfAction(PRE_SET_DATA_PROFILES[i]), "Delete", "Delete is available");
+            Assert.assertNotEquals(dataProfilesPage.getTextOfPresetAction(PRE_SET_DATA_PROFILES[i]), "Edit", "Edit is available");
+            Assert.assertNotEquals(dataProfilesPage.getTextOfPresetAction(PRE_SET_DATA_PROFILES[i]), "Delete", "Delete is available");
 
             Logger.verify(String.format("Verify that %s is not clickable.", PRE_SET_DATA_PROFILES[i]));
             dataProfilesPage.clickOnPresetDataProfile(PRE_SET_DATA_PROFILES[i]);

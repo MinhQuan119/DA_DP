@@ -6,7 +6,7 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
         <listener class-name="utils.common.TestListener" />
     </listeners>
-    <test name="ChromeTest">
+    <test name="Run Chrome Local">
         <parameter name="Browser" value="chrome.local"/>
         <classes>
             <class name="tests.data_profiles.PositiveDPTests">
@@ -16,7 +16,7 @@
             </class>
         </classes>
     </test>
-    <test name="FirefoxTest">
+    <test name="Run Firefox Local">
         <parameter name="Browser" value="firefox.local"/>
         <classes>
             <class name="tests.data_profiles.PositiveDPTests">
