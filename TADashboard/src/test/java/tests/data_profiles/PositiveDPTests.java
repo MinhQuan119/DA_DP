@@ -20,7 +20,7 @@ public class PositiveDPTests extends BaseTest {
         loginPage.login(Constants.USER_NAME, "");
 
         Logger.step("Go to Data Profiles page.");
-        dashboardPage.navigateToDataProfiles();
+        dashboardPage.selectAdministerMenu("Data Profiles");
 
         for (int i = 0; i < Constants.PRE_SET_DATA_PROFILES.length; i++) {
             Logger.step("Verify that Edit and Delete are not displayed at " + Constants.PRE_SET_DATA_PROFILES[i]);
