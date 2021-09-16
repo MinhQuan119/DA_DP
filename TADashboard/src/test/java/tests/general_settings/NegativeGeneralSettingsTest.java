@@ -30,7 +30,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         generalSettingsPage.clickNextButton();
 
         Logger.verify("Verify that dialog message is display");
-        Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
+        Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog doesn't display correct message");
 
         Logger.step("Click Ok in alert");
         DriverUtils.acceptAlert();
@@ -39,6 +39,6 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         generalSettingsPage.clickFinishButton();
 
         Logger.verify("Verify that dialog message is display");
-        Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog message doesn't displayed");
+        Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog doesn't display correct message");
     }
 }
