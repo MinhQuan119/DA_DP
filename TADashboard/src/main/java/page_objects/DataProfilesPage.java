@@ -12,23 +12,23 @@ public class DataProfilesPage extends BasePage {
     private Link dynamicPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/following-sibling::td[@class='center']/a/parent::td");
     private Link dynamicNonPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td/a[text()='%s']/parent::td/following-sibling::td[@class='center']/a/parent::td");
 
-    public String getTextOfPresetAction(String action) {
-        dynamicPresetAction.setDynamicValue(action.replace(" ", " "));
+    public String getTextOfPresetAction(String profileName) {
+        dynamicPresetAction.setDynamicValue(profileName.replace(" ", " "));
         return dynamicPresetAction.getText();
     }
 
-    public String getTextOfNonPresetAction(String action) {
-        dynamicNonPresetAction.setDynamicValue(action.replace(" ", " "));
+    public String getTextOfNonPresetAction(String profileName) {
+        dynamicNonPresetAction.setDynamicValue(profileName.replace(" ", " "));
         return dynamicNonPresetAction.getText();
     }
 
-    public void clickOnPresetDataProfile(String dataProfile) {
-        dynamicPresetDataProfile.setDynamicValue(dataProfile.replace(" ", " "));
+    public void clickOnPresetDataProfile(String profileName) {
+        dynamicPresetDataProfile.setDynamicValue(profileName.replace(" ", " "));
         dynamicPresetDataProfile.click();
     }
 
-    public boolean isPresetCheckBoxDisplayed(String checkbox) {
-        dynamicPresetCheckbox.setDynamicValue(checkbox.replace(" ", " "));
+    public boolean isPresetCheckBoxDisplayed(String profileName) {
+        dynamicPresetCheckbox.setDynamicValue(profileName.replace(" ", " "));
         return dynamicPresetCheckbox.isVisible(Constants.SHORT_TIME_OUT);
     }
 }
