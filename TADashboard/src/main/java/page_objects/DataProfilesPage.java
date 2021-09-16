@@ -27,6 +27,13 @@ public class DataProfilesPage extends BasePage {
         dynamicPresetDataProfile.click();
     }
 
+    public boolean doesPresetDataProfileHasLink(String profileName) {
+        boolean bool = false;
+        dynamicPresetDataProfile.setDynamicValue(profileName.replace(" ", " "));
+        if(dynamicPresetDataProfile.getAttribute("href") == null) bool = true;
+        return bool;
+    }
+
     public boolean isPresetCheckBoxDisplayed(String profileName) {
         dynamicPresetCheckbox.setDynamicValue(profileName.replace(" ", " "));
         return dynamicPresetCheckbox.isVisible(Constants.SHORT_TIME_OUT);

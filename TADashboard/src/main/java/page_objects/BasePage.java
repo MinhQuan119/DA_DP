@@ -11,6 +11,7 @@ public class BasePage {
     public void selectAdministerMenu(String pageName) {
         lblAdminister.click();
         dynamicAdministerMenu.setDynamicValue(pageName);
+        dynamicAdministerMenu.waitForElementClickable();
         dynamicAdministerMenu.click();
     }
 
