@@ -28,10 +28,8 @@ public class DataProfilesPage extends BasePage {
     }
 
     public boolean doesPresetDataProfileHasLink(String profileName) {
-        boolean bool = true;
         dynamicPresetDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        if(dynamicPresetDataProfile.getAttribute("href") == null) bool = false;
-        return bool;
+        return (dynamicPresetDataProfile.getAttribute("href") != null);
     }
 
     public boolean isPresetCheckBoxDisplayed(String profileName) {

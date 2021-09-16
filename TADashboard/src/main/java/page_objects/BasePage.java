@@ -2,6 +2,7 @@ package page_objects;
 
 import com.logigear.control.common.imp.Label;
 import com.logigear.control.common.imp.Link;
+import utils.common.Constants;
 
 public class BasePage {
     private final Label lblWelcome = new Label("css=a[href='#Welcome']");
@@ -11,7 +12,7 @@ public class BasePage {
     public void selectAdministerMenu(String pageName) {
         lblAdminister.click();
         dynamicAdministerMenu.setDynamicValue(pageName);
-        dynamicAdministerMenu.waitForElementClickable();
+        dynamicAdministerMenu.waitForElementClickable(Constants.SHORT_TIME_OUT);
         dynamicAdministerMenu.click();
     }
 
