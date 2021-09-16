@@ -5,35 +5,27 @@ import com.logigear.control.common.imp.Link;
 import utils.common.Constants;
 
 public class DataProfilesPage extends BasePage {
-    private CheckBox dynamicPresetCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/preceding-sibling::td/input");
-    private CheckBox dynamicNonPresetCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td/a[text()='%s']/parent::td/preceding-sibling::td/input");
-    private Link dynamicPresetDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']");
-    private Link dynamicNonPresetDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td/a[text()='%s']");
-    private Link dynamicPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[text()='%s']/following-sibling::td[@class='center']/a/parent::td");
-    private Link dynamicNonPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td/a[text()='%s']/parent::td/following-sibling::td[@class='center']/a/parent::td");
+    private CheckBox dynamicCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/preceding-sibling::td");
+    private Link dynamicDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']");
+    private Link dynamicPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/following-sibling::td[@class='center']/a/parent::td");
 
-    public String getTextOfPresetAction(String profileName) {
+    public String getTextOfAction(String profileName) {
         dynamicPresetAction.setDynamicValue(profileName.replace(" ", " "));
         return dynamicPresetAction.getText();
     }
 
-    public String getTextOfNonPresetAction(String profileName) {
-        dynamicNonPresetAction.setDynamicValue(profileName.replace(" ", " "));
-        return dynamicNonPresetAction.getText();
+    public void clickOnDataProfile(String profileName) {
+        dynamicDataProfile.setDynamicValue(profileName.replace(" ", " "));
+        dynamicDataProfile.click();
     }
 
-    public void clickOnPresetDataProfile(String profileName) {
-        dynamicPresetDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        dynamicPresetDataProfile.click();
+    public boolean doesDataProfileHasLink(String profileName) {
+        dynamicDataProfile.setDynamicValue(profileName.replace(" ", " "));
+        return (dynamicDataProfile.getAttribute("href") != null);
     }
 
-    public boolean doesPresetDataProfileHasLink(String profileName) {
-        dynamicPresetDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        return (dynamicPresetDataProfile.getAttribute("href") != null);
-    }
-
-    public boolean isPresetCheckBoxDisplayed(String profileName) {
-        dynamicPresetCheckbox.setDynamicValue(profileName.replace(" ", " "));
-        return dynamicPresetCheckbox.isVisible(Constants.SHORT_TIME_OUT);
+    public boolean isCheckBoxDisplayed(String profileName) {
+        dynamicCheckbox.setDynamicValue(profileName.replace(" ", " "));
+        return dynamicCheckbox.isVisible(Constants.SHORT_TIME_OUT);
     }
 }
