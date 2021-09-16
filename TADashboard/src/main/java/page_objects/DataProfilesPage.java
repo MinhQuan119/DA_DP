@@ -5,7 +5,7 @@ import com.logigear.control.common.imp.Link;
 import utils.common.Constants;
 
 public class DataProfilesPage extends BasePage {
-    private CheckBox dynamicCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/preceding-sibling::td");
+    private CheckBox dynamicCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/preceding-sibling::td/input");
     private Link dynamicDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']");
     private Link dynamicPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/following-sibling::td[@class='center']/a/parent::td");
 

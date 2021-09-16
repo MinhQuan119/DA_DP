@@ -10,6 +10,7 @@ public class BasePage {
     private final Link dynamicAdministerMenu = new Link("xpath=//div[@id='header']//a[text()='%s']");
 
     public void selectAdministerMenu(String pageName) {
+        lblAdminister.waitForElementClickable(Constants.SHORT_TIME_OUT);
         lblAdminister.click();
         dynamicAdministerMenu.setDynamicValue(pageName);
         dynamicAdministerMenu.waitForElementClickable(Constants.SHORT_TIME_OUT);
