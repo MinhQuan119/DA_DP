@@ -28,9 +28,9 @@ public class DataProfilesPage extends BasePage {
     }
 
     public boolean doesPresetDataProfileHasLink(String profileName) {
-        boolean bool = false;
+        boolean bool = true;
         dynamicPresetDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        if(dynamicPresetDataProfile.getAttribute("href") == null) bool = true;
+        if(dynamicPresetDataProfile.getAttribute("href") == null) bool = false;
         return bool;
     }
 
