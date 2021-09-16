@@ -10,7 +10,7 @@ import utils.common.Constants;
 import utils.helper.Logger;
 
 public class PositiveDPTests extends BaseTest {
-    private final String[] PRE_SET_DATA_PROFILES = {
+    private String[] preSetDataProfiles = {
             "Action Implementation By Status",
             "Test Case Execution",
             "Test Case Execution Failure Trend",
@@ -41,16 +41,16 @@ public class PositiveDPTests extends BaseTest {
         Logger.step("Go to Data Profiles page.");
         dashboardPage.selectAdministerMenu("Data Profiles");
 
-        for (int i = 0; i < PRE_SET_DATA_PROFILES.length; i++) {
-            Logger.verify("Verify that Edit and Delete are not displayed at " + PRE_SET_DATA_PROFILES[i]);
-            Assert.assertNotEquals(dataProfilesPage.getTextOfPresetAction(PRE_SET_DATA_PROFILES[i]), "Edit", "Edit is available");
-            Assert.assertNotEquals(dataProfilesPage.getTextOfPresetAction(PRE_SET_DATA_PROFILES[i]), "Delete", "Delete is available");
+        for (int i = 0; i < preSetDataProfiles.length; i++) {
+            Logger.verify("Verify that Edit and Delete are not displayed at " + preSetDataProfiles[i]);
+            Assert.assertFalse(dataProfilesPage.getTextOfPresetAction(preSetDataProfiles[i]).contains("Edit"), "Edit is available");
+            Assert.assertFalse(dataProfilesPage.getTextOfPresetAction(preSetDataProfiles[i]).contains("Delete"), "Delete is available");
 
-            Logger.verify(String.format("Verify that %s is not clickable.", PRE_SET_DATA_PROFILES[i]));
-            dataProfilesPage.clickOnPresetDataProfile(PRE_SET_DATA_PROFILES[i]);
+            Logger.verify(String.format("Verify that %s is not clickable.", preSetDataProfiles[i]));
+            dataProfilesPage.clickOnPresetDataProfile(preSetDataProfiles[i]);
 
-            Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", PRE_SET_DATA_PROFILES[i]));
-            Assert.assertFalse(dataProfilesPage.isPresetCheckBoxDisplayed(PRE_SET_DATA_PROFILES[i]), "Checkbox has displayed in front of pre-set data profile.");
+            Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", preSetDataProfiles[i]));
+            Assert.assertFalse(dataProfilesPage.isPresetCheckBoxDisplayed(preSetDataProfiles[i]), "Checkbox has displayed in front of pre-set data profile.");
         }
     }
 }

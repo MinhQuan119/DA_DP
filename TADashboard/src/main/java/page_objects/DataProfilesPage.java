@@ -17,6 +17,11 @@ public class DataProfilesPage extends BasePage {
         return dynamicPresetAction.getText();
     }
 
+    public String getTextOfNonPresetAction(String action) {
+        dynamicNonPresetAction.setDynamicValue(action.replace(" ", " "));
+        return dynamicNonPresetAction.getText();
+    }
+
     public void clickOnPresetDataProfile(String dataProfile) {
         dynamicPresetDataProfile.setDynamicValue(dataProfile.replace(" ", " "));
         dynamicPresetDataProfile.click();
