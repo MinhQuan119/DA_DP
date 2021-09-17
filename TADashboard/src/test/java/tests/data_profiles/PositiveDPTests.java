@@ -16,7 +16,6 @@ import java.util.List;
 
 public class PositiveDPTests extends BaseTest {
     List<String> preSetDataProfiles = new ArrayList<>();
-    List<String> nonPresetDataProfiles = new ArrayList<>();
     LoginPage loginPage = new LoginPage();
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
     DashboardPage dashboardPage = new DashboardPage();
@@ -72,11 +71,8 @@ public class PositiveDPTests extends BaseTest {
         String name = DataHelper.getRandomText();
         dataProfilesPage.clickAddNewLink();
         dataProfilesGeneralSettingPage.createNewProfile(name, "test modules", "None");
-        nonPresetDataProfiles.add(name);
 
-        for (String dataProfile : nonPresetDataProfiles) {
-            Logger.verify(String.format("Verify that in front of %s has a checkbox.", dataProfile));
-            Assert.assertTrue(dataProfilesPage.isCheckBoxDisplayed(dataProfile), "Checkbox is not displayed in front of non-preset data profile.");
-        }
+        Logger.verify(String.format("Verify that in front of %s has a checkbox.", name));
+        Assert.assertTrue(dataProfilesPage.isCheckBoxDisplayed(name), "Checkbox is not displayed in front of non-preset data profile.");
     }
 }

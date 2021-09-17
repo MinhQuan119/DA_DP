@@ -7,9 +7,9 @@ import com.logigear.control.common.imp.TextBox;
 public class DataProfilesGeneralSettingsPage {
     private Button btnNext = new Button("css=input[value='Next']");
     private Button btnFinish = new Button("css=input[value='Finish']");
-    private TextBox txtName = new TextBox("css=#txtProfileName");
-    private ComboBox cbbItemType = new ComboBox("css=#cbbEntityType");
-    private ComboBox cbbRelatedData = new ComboBox("css=#cbbSubReport");
+    private TextBox txtName = new TextBox("id=txtProfileName");
+    private ComboBox cbbItemType = new ComboBox("id=cbbEntityType");
+    private ComboBox cbbRelatedData = new ComboBox("id=cbbSubReport");
 
     public void clickNextButton() {
         btnNext.click();
