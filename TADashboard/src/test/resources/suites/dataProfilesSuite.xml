@@ -10,14 +10,14 @@
         <parameter name="Browser" value="chrome.local"/>
         <classes>
             <class name="tests.data_profiles.PositiveDPTests"/>
-            <class name="tests.general_settings.NegativeGeneralSettingsTest"/>               
+            <class name="tests.general_settings.NegativeDPGeneralSettingsTest"/>
         </classes>
     </test>
     <test name="Run Firefox Local">
         <parameter name="Browser" value="firefox.local"/>
         <classes>           
             <class name="tests.data_profiles.PositiveDPTests"/>
-            <class name="tests.general_settings.NegativeGeneralSettingsTest"/>               
+            <class name="tests.general_settings.NegativeDPGeneralSettingsTest"/>
         </classes>
     </test>
 </suite>
