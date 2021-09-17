@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PositiveDPTests extends BaseTest {
-    List<String> preSetDataProfiles = new ArrayList<>();
     LoginPage loginPage = new LoginPage();
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
     DashboardPage dashboardPage = new DashboardPage();
@@ -29,6 +28,7 @@ public class PositiveDPTests extends BaseTest {
         Logger.step("Go to Data Profiles page.");
         dashboardPage.selectAdministerMenu("Data Profiles");
 
+        List<String> preSetDataProfiles = new ArrayList<>();
         preSetDataProfiles.add("Action Implementation By Status");
         preSetDataProfiles.add("Test Case Execution");
         preSetDataProfiles.add("Test Case Execution Failure Trend");
@@ -46,7 +46,7 @@ public class PositiveDPTests extends BaseTest {
         preSetDataProfiles.add("Test Module Status per Assigned Users");
         preSetDataProfiles.add("Test Objective Execution");
 
-        for (String dataProfile: preSetDataProfiles) {
+        for (String dataProfile : preSetDataProfiles) {
             Logger.verify("Verify that Edit and Delete are not displayed at " + dataProfile);
             Assert.assertFalse(dataProfilesPage.getTextOfAction(dataProfile).contains("Edit"), "Edit is available");
             Assert.assertFalse(dataProfilesPage.getTextOfAction(dataProfile).contains("Delete"), "Delete is available");
