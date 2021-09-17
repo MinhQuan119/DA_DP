@@ -20,13 +20,13 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         Logger.step("Login with a valid user");
         loginPage.login(Constants.USERNAME, "");
 
-        Logger.step("navigate to data profile page");
+        Logger.step("Navigate to data profile page");
         dataProfilesPage.selectAdministerMenu("Data Profiles");
 
-        Logger.step("Click Add new link");
+        Logger.step("Click Add New link");
         dataProfilesPage.clickAddNewLink();
 
-        Logger.step("click next button");
+        Logger.step("Click Next button");
         generalSettingsPage.clickNextButton();
 
         Logger.verify("Verify that dialog message is display");
@@ -35,7 +35,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         Logger.step("Click Ok in alert");
         DriverUtils.acceptAlert();
 
-        Logger.step("Click finish button");
+        Logger.step("Click Finish button");
         generalSettingsPage.clickFinishButton();
 
         Logger.verify("Verify that dialog message is display");
