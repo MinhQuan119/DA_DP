@@ -20,3 +20,4 @@ public class BasePage {
     public boolean doesWelcomeLabelDisplay() {
         return lblWelcome.isVisible();
     }
+}

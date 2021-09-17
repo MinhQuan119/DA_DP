@@ -27,7 +27,8 @@ public class DataProfilesPage extends BasePage {
 
     public boolean isCheckBoxDisplayed(String profileName) {
         dynamicCheckbox.setDynamicValue(profileName.replace(" ", " "));
-        return dynamicCheckbox.isVisible(Constants.SHORT_TIME_OUT);    
+        return dynamicCheckbox.isVisible(Constants.SHORT_TIME_OUT);
+    }
 
     public void clickAddNewLink() {
         lnkAddNew.click();

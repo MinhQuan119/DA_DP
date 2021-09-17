@@ -19,6 +19,5 @@
             <class name="tests.data_profiles.PositiveDPTests"/>
             <class name="tests.general_settings.NegativeGeneralSettingsTest"/>               
         </classes>
-        </classes>
     </test>
 </suite>

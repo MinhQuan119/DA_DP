@@ -21,7 +21,7 @@ public class PositiveDPTests extends BaseTest {
     @Test(description = "Verify that all Pre-set Data Profiles are populated correctly")
     public void tc066_PreSetDataProfilesArePopulatedCorrectly() {
         Logger.step("Login with a valid user");
-        loginPage.login(Constants.USER_NAME, "");
+        loginPage.login(Constants.USERNAME, "");
 
         Logger.step("Go to Data Profiles page.");
         dashboardPage.selectAdministerMenu("Data Profiles");
