@@ -4,14 +4,14 @@ import com.logigear.driver.DriverUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page_objects.DataProfilesPage;
-import page_objects.GeneralSettingsPage;
+import page_objects.DataProfilesGeneralSettingsPage;
 import page_objects.LoginPage;
 import tests.BaseTest;
 import utils.common.Constants;
 import utils.helper.Logger;
 
 public class NegativeGeneralSettingsTest extends BaseTest {
-    GeneralSettingsPage generalSettingsPage = new GeneralSettingsPage();
+    DataProfilesGeneralSettingsPage dataProfilesGeneralSettingsPage = new DataProfilesGeneralSettingsPage();
     LoginPage loginPage = new LoginPage();
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
 
@@ -27,7 +27,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         dataProfilesPage.clickAddNewLink();
 
         Logger.step("Click Next button");
-        generalSettingsPage.clickNextButton();
+        dataProfilesGeneralSettingsPage.clickNextButton();
 
         Logger.verify("Verify that dialog message is display");
         Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog doesn't display correct message");
@@ -36,7 +36,7 @@ public class NegativeGeneralSettingsTest extends BaseTest {
         DriverUtils.acceptAlert();
 
         Logger.step("Click Finish button");
-        generalSettingsPage.clickFinishButton();
+        dataProfilesGeneralSettingsPage.clickFinishButton();
 
         Logger.verify("Verify that dialog message is display");
         Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog doesn't display correct message");
