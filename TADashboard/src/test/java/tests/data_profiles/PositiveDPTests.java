@@ -43,16 +43,16 @@ public class PositiveDPTests extends BaseTest {
         preSetDataProfiles.add("Test Module Status per Assigned Users");
         preSetDataProfiles.add("Test Objective Execution");
 
-        for (String dataProfileValue: preSetDataProfiles) {
-            Logger.verify("Verify that Edit and Delete are not displayed at " + dataProfileValue);
-            Assert.assertFalse(dataProfilesPage.getTextOfAction(dataProfileValue).contains("Edit"), "Edit is available");
-            Assert.assertFalse(dataProfilesPage.getTextOfAction(dataProfileValue).contains("Delete"), "Delete is available");
+        for (String dataProfile: preSetDataProfiles) {
+            Logger.verify("Verify that Edit and Delete are not displayed at " + dataProfile);
+            Assert.assertFalse(dataProfilesPage.getTextOfAction(dataProfile).contains("Edit"), "Edit is available");
+            Assert.assertFalse(dataProfilesPage.getTextOfAction(dataProfile).contains("Delete"), "Delete is available");
 
-            Logger.verify(String.format("Verify that %s is not clickable.", dataProfileValue));
-            Assert.assertFalse(dataProfilesPage.doesDataProfileHasLink(dataProfileValue), "Pre-set data profile is clickable");
+            Logger.verify(String.format("Verify that %s is not clickable.", dataProfile));
+            Assert.assertFalse(dataProfilesPage.doesDataProfileHasLink(dataProfile), "Pre-set data profile is clickable");
 
-            Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", dataProfileValue));
-            Assert.assertFalse(dataProfilesPage.isCheckBoxDisplayed(dataProfileValue), "Checkbox has displayed in front of pre-set data profile.");
+            Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", dataProfile));
+            Assert.assertFalse(dataProfilesPage.isCheckBoxDisplayed(dataProfile), "Checkbox has displayed in front of pre-set data profile.");
         }
     }
 }
