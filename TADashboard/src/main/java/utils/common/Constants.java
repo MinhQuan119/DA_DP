@@ -3,7 +3,6 @@ package utils.common;
 import utils.helper.PropertiesHelper;
 
 public class Constants {
-
     // Common Constants
     public static final String USERNAME = "administrator";
     public static final String BROWSER_SETTING_FILE = "src/test/resources/browsers.setting.ini";
