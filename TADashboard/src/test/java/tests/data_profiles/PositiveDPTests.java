@@ -22,7 +22,7 @@ public class PositiveDPTests extends BaseTest {
     DataProfilesGeneralSettingsPage dataProfilesGeneralSettingPage = new DataProfilesGeneralSettingsPage();
 
     @BeforeMethod
-    public void loginAndNavigateToDPPage(){
+    public void loginAndNavigateToDPPage() {
         Logger.step("Login with a valid user");
         loginPage.login(Constants.USERNAME, "");
 
@@ -60,6 +60,33 @@ public class PositiveDPTests extends BaseTest {
 
             Logger.verify(String.format("Verify that in front of %s does not have a checkbox.", dataProfile));
             Assert.assertFalse(dataProfilesPage.isCheckBoxDisplayed(dataProfile), "Checkbox has displayed in front of pre-set data profile.");
+        }
+    }
+
+    @Test(description = "Verify that all Pre-set Data Profiles are populated correctly")
+    public void tc065_VerifyThatAllPreSetDataProfilesArePopulatedCorrectly() {
+        List<String> preSetDataProfiles = new ArrayList<>();
+        preSetDataProfiles.add("Action Implementation By Status");
+        preSetDataProfiles.add("Test Case Execution");
+        preSetDataProfiles.add("Test Case Execution Failure Trend");
+        preSetDataProfiles.add("Test Case Execution History");
+        preSetDataProfiles.add("Test Case Execution Results");
+        preSetDataProfiles.add("Test Case Execution Trend");
+        preSetDataProfiles.add("Test Module Execution");
+        preSetDataProfiles.add("Test Module Execution Failure Trend");
+        preSetDataProfiles.add("Test Module Execution History");
+        preSetDataProfiles.add("Test Module Execution Results");
+        preSetDataProfiles.add("Test Module Execution Results Report");
+        preSetDataProfiles.add("Test Module Execution Trend");
+        preSetDataProfiles.add("Test Module Implementation By Priority");
+        preSetDataProfiles.add("Test Module Implementation By Status");
+        preSetDataProfiles.add("Test Module Status per Assigned Users");
+        preSetDataProfiles.add("Test Objective Execution");
+
+        Logger.verify("Check Pre-set Data Profile are populated correctly in profiles page");
+        for (String dataProfile : preSetDataProfiles) {
+            Assert.assertTrue(dataProfilesPage.isDataProfileVisible(dataProfile),
+                    "Pre-set Data Profile are populated incorrectly in data profiles page");
         }
     }
 

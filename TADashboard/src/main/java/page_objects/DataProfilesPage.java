@@ -33,4 +33,9 @@ public class DataProfilesPage extends BasePage {
     public void clickAddNewLink() {
         lnkAddNew.click();
     }
+
+    public boolean isDataProfileVisible(String dataProfile) {
+        dynamicDataProfile.setDynamicValue(dataProfile.replace(" "," "));
+        return dynamicDataProfile.isVisible();
+    }
 }
