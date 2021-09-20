@@ -63,6 +63,34 @@ public class PositiveDPTests extends BaseTest {
         }
     }
 
+    @Test(description = "Verify that all Pre-set Data Profiles are populated correctly")
+    public void tc065_VerifyThatAllPreSetDataProfilesArePopulatedCorrectly() {
+
+        List<String> preSetDataProfiles = new ArrayList<>();
+        preSetDataProfiles.add("Action Implementation By Status");
+        preSetDataProfiles.add("Test Case Execution");
+        preSetDataProfiles.add("Test Case Execution Failure Trend");
+        preSetDataProfiles.add("Test Case Execution History");
+        preSetDataProfiles.add("Test Case Execution Results");
+        preSetDataProfiles.add("Test Case Execution Trend");
+        preSetDataProfiles.add("Test Module Execution");
+        preSetDataProfiles.add("Test Module Execution Failure Trend");
+        preSetDataProfiles.add("Test Module Execution History");
+        preSetDataProfiles.add("Test Module Execution Results");
+        preSetDataProfiles.add("Test Module Execution Results Report");
+        preSetDataProfiles.add("Test Module Execution Trend");
+        preSetDataProfiles.add("Test Module Implementation By Priority");
+        preSetDataProfiles.add("Test Module Implementation By Status");
+        preSetDataProfiles.add("Test Module Status per Assigned Users");
+        preSetDataProfiles.add("Test Objective Execution");
+
+        Logger.verify("Check Pre-set Data Profile are populated correctly in profiles page");
+        for (String dataProfile : preSetDataProfiles) {
+            Assert.assertTrue(dataProfilesPage.isDataProfileVisible(dataProfile),
+                    "Pre-set Data Profile are populated incorrectly in data profiles page");
+        }
+    }
+
     @Test(description = "Verify that Check Boxes are only present for non-preset Data Profiles.")
     public void tc068_CheckBoxesAreOnlyPresentForNonPresetDataProfiles() {
         Logger.step("Add new data profile");
