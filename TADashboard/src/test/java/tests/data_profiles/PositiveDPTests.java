@@ -22,7 +22,7 @@ public class PositiveDPTests extends BaseTest {
     DataProfilesGeneralSettingsPage dataProfilesGeneralSettingPage = new DataProfilesGeneralSettingsPage();
 
     @BeforeMethod
-    public void loginAndNavigateToDPPage(){
+    public void loginAndNavigateToDPPage() {
         Logger.step("Login with a valid user");
         loginPage.login(Constants.USERNAME, "");
 
@@ -65,7 +65,6 @@ public class PositiveDPTests extends BaseTest {
 
     @Test(description = "Verify that all Pre-set Data Profiles are populated correctly")
     public void tc065_VerifyThatAllPreSetDataProfilesArePopulatedCorrectly() {
-
         List<String> preSetDataProfiles = new ArrayList<>();
         preSetDataProfiles.add("Action Implementation By Status");
         preSetDataProfiles.add("Test Case Execution");
