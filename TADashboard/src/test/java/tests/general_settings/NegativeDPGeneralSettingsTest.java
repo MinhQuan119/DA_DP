@@ -10,7 +10,7 @@ import tests.BaseTest;
 import utils.common.Constants;
 import utils.helper.Logger;
 
-public class NegativeGeneralSettingsTest extends BaseTest {
+public class NegativeDPGeneralSettingsTest extends BaseTest {
     DataProfilesGeneralSettingsPage dataProfilesGeneralSettingsPage = new DataProfilesGeneralSettingsPage();
     LoginPage loginPage = new LoginPage();
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
