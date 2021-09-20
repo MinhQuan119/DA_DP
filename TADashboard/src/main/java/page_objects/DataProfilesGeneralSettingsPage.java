@@ -26,7 +26,7 @@ public class DataProfilesGeneralSettingsPage {
         btnFinish.click();
     }
 
-    public boolean isItemTypeDisplayedInOptions(String itemType) {
-        return cbbItemType.getOptions().contains(itemType);
+    public boolean isItemTypeDisplayedInOptions(String itemTypeName) {
+        return cbbItemType.getOptions().contains(itemTypeName);
     }
 }
