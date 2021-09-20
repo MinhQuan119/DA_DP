@@ -10,6 +10,7 @@ public class DataProfilesGeneralSettingsPage {
     private TextBox txtName = new TextBox("id=txtProfileName");
     private ComboBox cbbItemType = new ComboBox("id=cbbEntityType");
     private ComboBox cbbRelatedData = new ComboBox("id=cbbSubReport");
+    private ComboBox dynamicOption = new ComboBox("xpath=//select[@id='cbbEntityType']/option[text()='%s']");
 
     public void clickNextButton() {
         btnNext.click();
@@ -24,5 +25,14 @@ public class DataProfilesGeneralSettingsPage {
         cbbItemType.select(type);
         cbbRelatedData.select(relatedData);
         btnFinish.click();
+    }
+
+    public void clickItemTypeComboBox() {
+        cbbItemType.click();
+    }
+
+    public boolean isOptionVisible(String itemType) {
+        dynamicOption.setDynamicValue(itemType);
+        return dynamicOption.isVisible();
     }
 }
