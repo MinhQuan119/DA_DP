@@ -22,7 +22,7 @@ public class NegativeDPGeneralSettingsTest extends BaseTest {
     DashboardPage dashboardPage = new DashboardPage();
 
     @BeforeMethod
-    public void loginAndNavigateToDPPage() {
+    public void loginAndNavigateToDPGeneralSettingsPage() {
         Logger.step("Login with a valid user");
         loginPage.login(Constants.USERNAME, "");
 
@@ -53,22 +53,34 @@ public class NegativeDPGeneralSettingsTest extends BaseTest {
 
     @Test(description = "Verify that all data profile types are listed in priority order under 'Item Type' dropped down menu")
     public void tc073_AllDataProfileTypesAreListed() {
-        List<String> optionInTypeItem = new ArrayList<>();
-        optionInTypeItem.add("test modules");
-        optionInTypeItem.add("test cases");
-        optionInTypeItem.add("test objectives");
-        optionInTypeItem.add("data sets");
-        optionInTypeItem.add("actions");
-        optionInTypeItem.add("interface entities");
-        optionInTypeItem.add("test results");
-        optionInTypeItem.add("test case results");
-        optionInTypeItem.add("test suites");
-        optionInTypeItem.add("bugs");
-        Logger.verify("Items are listed in priority order");
-        dataProfilesGeneralSettingsPage.clickItemTypeComboBox();
-        for (String option : optionInTypeItem) {
-            Assert.assertTrue(dataProfilesGeneralSettingsPage.isOptionVisible(option),
-                    "items are unlisted in priority order");
+            List<String> optionInTypeItem = new ArrayList<>();
+            optionInTypeItem.add("test modules");
+            optionInTypeItem.add("test cases");
+            optionInTypeItem.add("test objectives");
+            optionInTypeItem.add("data sets");
+            optionInTypeItem.add("actions");
+            optionInTypeItem.add("interface entities");
+            optionInTypeItem.add("test results");
+            optionInTypeItem.add("test case results");
+            optionInTypeItem.add("test suites");
+            optionInTypeItem.add("bugs");
+            Logger.verify("Items are listed in priority order");
+            dataProfilesGeneralSettingsPage.clickItemTypeComboBox();
+            for (String option : optionInTypeItem) {
+                Assert.assertTrue(dataProfilesGeneralSettingsPage.isOptionVisible(option),
+                        "items are unlisted in priority order");
+            }
         }
+    @Test(description = "Verify that special characters is not allowed for input to 'Name *' field")
+    public void tc070_SpecialCharactersIsNotAllowedForInputToNameField() {
+        Logger.step("Add new Data Profile with input special characters into 'Name *' field");
+        dataProfilesGeneralSettingsPage.createNewProfile("/:*?<>|\"#[ ]{}=%;", "test modules", "None");
+
+        Logger.verify("Verify that dialog message is displayed as expected");
+        Assert.assertEquals(
+                DriverUtils.getAlertText(),
+                "Invalid name. The name cannot contain high ASCII characters or any of the following characters: /:*?<>|\"#[]{}=%;",
+                "Special characters '/:*?<>|\"#[ ]{}=%;'is allowed for input to 'Name *' field"
+        );
     }
 }
