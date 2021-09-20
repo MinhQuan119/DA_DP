@@ -1,6 +1,7 @@
 package tests.data_profiles;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page_objects.DashboardPage;
 import page_objects.DataProfilesGeneralSettingsPage;
@@ -20,14 +21,17 @@ public class PositiveDPTests extends BaseTest {
     DashboardPage dashboardPage = new DashboardPage();
     DataProfilesGeneralSettingsPage dataProfilesGeneralSettingPage = new DataProfilesGeneralSettingsPage();
 
-    @Test(description = "Verify that all Pre-set Data Profiles are populated correctly")
-    public void tc066_PreSetDataProfilesArePopulatedCorrectly() {
+    @BeforeMethod
+    public void loginAndNavigateToDPPage(){
         Logger.step("Login with a valid user");
         loginPage.login(Constants.USERNAME, "");
 
         Logger.step("Go to Data Profiles page.");
         dashboardPage.selectAdministerMenu("Data Profiles");
+    }
 
+    @Test(description = "Verify that all Pre-set Data Profiles are populated correctly")
+    public void tc066_PreSetDataProfilesArePopulatedCorrectly() {
         List<String> preSetDataProfiles = new ArrayList<>();
         preSetDataProfiles.add("Action Implementation By Status");
         preSetDataProfiles.add("Test Case Execution");
@@ -61,12 +65,6 @@ public class PositiveDPTests extends BaseTest {
 
     @Test(description = "Verify that Check Boxes are only present for non-preset Data Profiles.")
     public void tc068_CheckBoxesAreOnlyPresentForNonPresetDataProfiles() {
-        Logger.step("Login with a valid user");
-        loginPage.login(Constants.USERNAME, "");
-
-        Logger.step("Go to Data Profiles page.");
-        dashboardPage.selectAdministerMenu("Data Profiles");
-
         Logger.step("Add new data profile");
         String name = DataHelper.getRandomText();
         dataProfilesPage.clickAddNewLink();
