@@ -12,9 +12,6 @@ import tests.BaseTest;
 import utils.common.Constants;
 import utils.helper.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class NegativeDPGeneralSettingsTest extends BaseTest {
     DataProfilesGeneralSettingsPage dataProfilesGeneralSettingsPage = new DataProfilesGeneralSettingsPage();
     LoginPage loginPage = new LoginPage();
@@ -49,26 +46,6 @@ public class NegativeDPGeneralSettingsTest extends BaseTest {
 
         Logger.verify("Verify that dialog message is displayed");
         Assert.assertEquals(DriverUtils.getAlertText(), "Please input profile name.", "Dialog doesn't display correct message");
-    }
-
-    @Test(description = "Verify that all data profile types are listed in priority order under 'Item Type' dropped down menu")
-    public void tc073_AllDataProfileTypesAreListed() {
-        List<String> optionInTypeItem = new ArrayList<>();
-        optionInTypeItem.add("Test Modules");
-        optionInTypeItem.add("Test Cases");
-        optionInTypeItem.add("Test Objectives");
-        optionInTypeItem.add("Data Sets");
-        optionInTypeItem.add("Actions");
-        optionInTypeItem.add("Interface Entities");
-        optionInTypeItem.add("Test Results");
-        optionInTypeItem.add("Test Case Results");
-        optionInTypeItem.add("Test Suites");
-        optionInTypeItem.add("Bugs");
-
-        Logger.verify("Items are listed in priority order");
-        dataProfilesGeneralSettingsPage.clickItemTypeComboBox();
-        Assert.assertEquals(dataProfilesGeneralSettingsPage.getOptionsInItemType(), optionInTypeItem,
-                "items are unlisted in priority order");
     }
 
     @Test(description = "Verify that special characters is not allowed for input to 'Name *' field")
