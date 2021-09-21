@@ -53,24 +53,24 @@ public class NegativeDPGeneralSettingsTest extends BaseTest {
 
     @Test(description = "Verify that all data profile types are listed in priority order under 'Item Type' dropped down menu")
     public void tc073_AllDataProfileTypesAreListed() {
-            List<String> optionInTypeItem = new ArrayList<>();
-            optionInTypeItem.add("test modules");
-            optionInTypeItem.add("test cases");
-            optionInTypeItem.add("test objectives");
-            optionInTypeItem.add("data sets");
-            optionInTypeItem.add("actions");
-            optionInTypeItem.add("interface entities");
-            optionInTypeItem.add("test results");
-            optionInTypeItem.add("test case results");
-            optionInTypeItem.add("test suites");
-            optionInTypeItem.add("bugs");
-            Logger.verify("Items are listed in priority order");
-            dataProfilesGeneralSettingsPage.clickItemTypeComboBox();
-            for (String option : optionInTypeItem) {
-                Assert.assertTrue(dataProfilesGeneralSettingsPage.isOptionVisible(option),
-                        "items are unlisted in priority order");
-            }
-        }
+        List<String> optionInTypeItem = new ArrayList<>();
+        optionInTypeItem.add("Test Modules");
+        optionInTypeItem.add("Test Cases");
+        optionInTypeItem.add("Test Objectives");
+        optionInTypeItem.add("Data Sets");
+        optionInTypeItem.add("Actions");
+        optionInTypeItem.add("Interface Entities");
+        optionInTypeItem.add("Test Results");
+        optionInTypeItem.add("Test Case Results");
+        optionInTypeItem.add("Test Suites");
+        optionInTypeItem.add("Bugs");
+
+        Logger.verify("Items are listed in priority order");
+        dataProfilesGeneralSettingsPage.clickItemTypeComboBox();
+        Assert.assertEquals(dataProfilesGeneralSettingsPage.getOptionsInItemType(), optionInTypeItem,
+                "items are unlisted in priority order");
+    }
+
     @Test(description = "Verify that special characters is not allowed for input to 'Name *' field")
     public void tc070_SpecialCharactersIsNotAllowedForInputToNameField() {
         Logger.step("Add new Data Profile with input special characters into 'Name *' field");
