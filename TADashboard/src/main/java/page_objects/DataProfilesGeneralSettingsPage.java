@@ -28,7 +28,7 @@ public class DataProfilesGeneralSettingsPage {
         btnFinish.click();
     }
 
-    public List<String> getAllItemTypesOptions() {
+    public List<String> getAllItemTypes() {
         return cbbItemType.getOptions();
     }
 }

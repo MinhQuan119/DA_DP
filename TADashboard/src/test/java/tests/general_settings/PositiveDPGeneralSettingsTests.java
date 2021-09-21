@@ -45,7 +45,7 @@ public class PositiveDPGeneralSettingsTests extends BaseTest {
         listItemTypes.add("Bugs");
 
         Logger.verify("Verify that all data profile types are listed under 'Item Type' dropped down menu");
-        Assert.assertTrue(dataProfilesGeneralSettingsPage.getAllItemTypesOptions().containsAll(listItemTypes),
+        Assert.assertTrue(dataProfilesGeneralSettingsPage.getAllItemTypes().equals(listItemTypes),
                 "Data profile types is not displayed in dropdown list as expected");
     }
 }
