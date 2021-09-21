@@ -9,6 +9,7 @@ import page_objects.LoginPage;
 import tests.BaseTest;
 import utils.common.Constants;
 import utils.helper.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,22 +32,20 @@ public class PositiveDPGeneralSettingsTests extends BaseTest {
 
     @Test(description = "Verify that all data profile types are listed under 'Item Type' dropped down menu")
     public void tc072_AllDataProfileTypesAreListedUnderItemTypeDroppedDownMenu() {
-        List<String> itemTypes = new ArrayList<>();
-        itemTypes.add("Test Modules");
-        itemTypes.add("Test Cases");
-        itemTypes.add("Test Objectives");
-        itemTypes.add("Data Sets");
-        itemTypes.add("Actions");
-        itemTypes.add("Interface Entities");
-        itemTypes.add("Test Results");
-        itemTypes.add("Test Case Results");
-        itemTypes.add("Test Suites");
-        itemTypes.add("Bugs");
+        List<String> listItemTypes = new ArrayList<>();
+        listItemTypes.add("Test Modules");
+        listItemTypes.add("Test Cases");
+        listItemTypes.add("Test Objectives");
+        listItemTypes.add("Data Sets");
+        listItemTypes.add("Actions");
+        listItemTypes.add("Interface Entities");
+        listItemTypes.add("Test Results");
+        listItemTypes.add("Test Case Results");
+        listItemTypes.add("Test Suites");
+        listItemTypes.add("Bugs");
 
         Logger.verify("Verify that all data profile types are listed under 'Item Type' dropped down menu");
-        for (String itemType : itemTypes) {
-            Assert.assertTrue(dataProfilesGeneralSettingsPage.isItemTypeDisplayedInOptions(itemType),
-                    itemType + " is not displayed in dropdown list");
-        }
+        Assert.assertTrue(dataProfilesGeneralSettingsPage.areItemTypesDisplayedInOptions(listItemTypes),
+                "Data profile types is not displayed in dropdown list as expected");
     }
 }

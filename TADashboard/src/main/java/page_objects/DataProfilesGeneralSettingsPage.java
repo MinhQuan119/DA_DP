@@ -4,6 +4,8 @@ import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.ComboBox;
 import com.logigear.control.common.imp.TextBox;
 
+import java.util.List;
+
 public class DataProfilesGeneralSettingsPage {
     private Button btnNext = new Button("css=input[value='Next']");
     private Button btnFinish = new Button("css=input[value='Finish']");
@@ -26,7 +28,7 @@ public class DataProfilesGeneralSettingsPage {
         btnFinish.click();
     }
 
-    public boolean isItemTypeDisplayedInOptions(String itemTypeName) {
-        return cbbItemType.getOptions().contains(itemTypeName);
+    public boolean areItemTypesDisplayedInOptions(List<String> listItems) {
+        return cbbItemType.getOptions().containsAll(listItems);
     }
 }
