@@ -3,6 +3,7 @@ package page_objects;
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.ComboBox;
 import com.logigear.control.common.imp.TextBox;
+import java.util.List;
 
 public class DataProfilesGeneralSettingsPage {
     private Button btnNext = new Button("css=input[value='Next']");
@@ -10,7 +11,6 @@ public class DataProfilesGeneralSettingsPage {
     private TextBox txtName = new TextBox("id=txtProfileName");
     private ComboBox cbbItemType = new ComboBox("id=cbbEntityType");
     private ComboBox cbbRelatedData = new ComboBox("id=cbbSubReport");
-    private ComboBox dynamicOption = new ComboBox("xpath=//select[@id='cbbEntityType']/option[text()='%s']");
 
     public void clickNextButton() {
         btnNext.click();
@@ -31,8 +31,7 @@ public class DataProfilesGeneralSettingsPage {
         cbbItemType.click();
     }
 
-    public boolean isOptionVisible(String itemType) {
-        dynamicOption.setDynamicValue(itemType);
-        return dynamicOption.isVisible();
+    public List<String> getOptionsInItemType(){
+        return cbbItemType.getOptions();
     }
 }
