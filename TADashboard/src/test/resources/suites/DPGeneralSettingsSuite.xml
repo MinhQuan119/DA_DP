@@ -9,15 +9,19 @@
     <test name="Run Chrome Local">
         <parameter name="Browser" value="chrome.local"/>
         <classes>
-            <class name="tests.general_settings.NegativeDPGeneralSettingsTest"/>
+            <class name="tests.data_profiles.PositiveDPTests"/>
             <class name="tests.general_settings.PositiveDPGeneralSettingsTests"/>
+            <class name="tests.general_settings.NegativeDPGeneralSettingsTest"/>
+            <class name="tests.display_fields.PositiveDPDisplayFieldsTests"/>
         </classes>
     </test>
     <test name="Run Firefox Local">
         <parameter name="Browser" value="firefox.local"/>
         <classes>
-            <class name="tests.general_settings.NegativeDPGeneralSettingsTest"/>
+            <class name="tests.data_profiles.PositiveDPTests"/>
             <class name="tests.general_settings.PositiveDPGeneralSettingsTests"/>
+            <class name="tests.general_settings.NegativeDPGeneralSettingsTest"/>
+            <class name="tests.display_fields.PositiveDPDisplayFieldsTests"/>
         </classes>
     </test>
 </suite>

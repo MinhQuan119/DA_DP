@@ -1,23 +1,25 @@
 package page_objects;
 
 import com.logigear.control.common.imp.CheckBox;
+import com.logigear.control.common.imp.Label;
 import com.logigear.control.common.imp.Link;
 import utils.common.Constants;
 
 public class DataProfilesPage extends BasePage {
     private CheckBox dynamicCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/preceding-sibling::td/input");
-    private Link dynamicDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/a");
-    private Link dynamicPresetAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/following-sibling::td[@class='center']/a/parent::td");
+    private Label dynamicDataProfile = new Label("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']");
+    private Link dynamicLinkOfDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/a");
+    private Link dynamicAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/following-sibling::td[@class='center']/a/parent::td");
     private Link lnkAddNew = new Link("css=div[class='panel_tag2'] a[href='profile.jsp?action=create']");
 
     public String getTextOfAction(String profileName) {
-        dynamicPresetAction.setDynamicValue(profileName.replace(" ", " "));
-        return dynamicPresetAction.getText();
+        dynamicAction.setDynamicValue(profileName.replace(" ", " "));
+        return dynamicAction.getText();
     }
 
     public void clickOnDataProfile(String profileName) {
-        dynamicDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        if (dynamicDataProfile.isClickable()) dynamicDataProfile.click();
+        dynamicLinkOfDataProfile.setDynamicValue(profileName.replace(" ", " "));
+        dynamicLinkOfDataProfile.click();
     }
 
     public boolean doesDataProfileHasLink(String profileName) {
