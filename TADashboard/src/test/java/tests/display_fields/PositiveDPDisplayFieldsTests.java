@@ -1,5 +1,6 @@
 package tests.display_fields;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page_objects.DataProfilesDisplayFieldsPage;
@@ -9,7 +10,6 @@ import page_objects.LoginPage;
 import tests.BaseTest;
 import utils.common.Constants;
 import utils.helper.Logger;
-import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -32,13 +32,10 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
             Logger.step("Add data profile name 'A' ");
             generalSettingsPage.createNewProfile("A", "test modules", "None");
         }
-
     }
 
     @Test(description = "Verify that all fields are pre-fixed with check boxes", groups = "g1")
     public void tc78_AllFieldsArePrefixedWithCheckBoxes() {
-        SoftAssert softAssert = new SoftAssert();
-
         Logger.step("Click data profile A");
         dataProfilesPage.clickOnDataProfile("A");
 
@@ -48,7 +45,7 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
         List<String> allLabels = displayFieldsPage.getAllDisplayFieldsLabels();
         Logger.verify("Verify that all fields are pre-fixed with check boxes");
         for (String label : allLabels) {
-            softAssert.assertTrue(displayFieldsPage.isFieldPrefixedWithCheckBox(label), label + " is not pre-fixed with check box");
+            Assert.assertTrue(displayFieldsPage.isFieldPrefixedWithCheckBox(label), label + " is not pre-fixed with check box");
         }
     }
 }
