@@ -8,12 +8,12 @@ import java.util.List;
 
 public class DataProfilesDisplayFieldsPage extends BasePage {
     private Label profileHeader = new Label("css=#profilesettings > tbody > tr > td.profilesettingheader");
-    private Label displayFieldLabels = new Label("css=#profilesettings > tbody label");
+    private Label displayFieldsLabels = new Label("css=#profilesettings > tbody label");
     private CheckBox dynamicCheckBox = new CheckBox("xpath=//table[@id='profilesettings']/tbody//label[contains(text(),'%s')]/input");
 
-    public List<String> getAllDisplayFields() {
-        displayFieldLabels.waitForDisplay();
-        return displayFieldLabels.getListText();
+    public List<String> getAllDisplayFieldsLabels() {
+        displayFieldsLabels.waitForDisplay();
+        return displayFieldsLabels.getListText();
     }
 
     public boolean isFieldPrefixedWithCheckBox(String labelName) {
