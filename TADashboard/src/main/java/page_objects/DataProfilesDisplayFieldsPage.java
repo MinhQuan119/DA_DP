@@ -11,7 +11,7 @@ public class DataProfilesDisplayFieldsPage extends BasePage {
     private Label displayFieldLabels = new Label("css=#profilesettings > tbody label");
     private CheckBox dynamicCheckBox = new CheckBox("xpath=//table[@id='profilesettings']/tbody//label[contains(text(),'%s')]/input");
 
-    public List<String> getAllDisplayFieldsLabels() {
+    public List<String> getAllDisplayFields() {
         displayFieldLabels.waitForDisplay();
         return displayFieldLabels.getListText();
     }

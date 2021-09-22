@@ -42,10 +42,10 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
         Logger.step("Click Next button");
         generalSettingsPage.clickNextButton();
 
-        List<String> allLabels = displayFieldsPage.getAllDisplayFieldsLabels();
+        List<String> allFields = displayFieldsPage.getAllDisplayFields();
         Logger.verify("Verify that all fields are pre-fixed with check boxes");
-        for (String label : allLabels) {
-            Assert.assertTrue(displayFieldsPage.isFieldPrefixedWithCheckBox(label), label + " is not pre-fixed with check box");
+        for (String field : allFields) {
+            Assert.assertTrue(displayFieldsPage.isFieldPrefixedWithCheckBox(field), field + " is not pre-fixed with check box");
         }
     }
 }
