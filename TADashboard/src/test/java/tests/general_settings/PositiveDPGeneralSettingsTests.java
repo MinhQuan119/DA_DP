@@ -64,7 +64,6 @@ public class PositiveDPGeneralSettingsTests extends BaseTest {
         listItemTypes.add("Bugs");
 
         Logger.verify("Items are listed in priority order");
-        dataProfilesGeneralSettingsPage.clickItemTypeComboBox();
         Assert.assertEquals(dataProfilesGeneralSettingsPage.getAllItemTypes(), listItemTypes,
                 "items are unlisted in priority order");
     }
