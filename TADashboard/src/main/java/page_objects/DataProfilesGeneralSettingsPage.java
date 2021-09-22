@@ -5,6 +5,8 @@ import com.logigear.control.common.imp.ComboBox;
 import com.logigear.control.common.imp.TextBox;
 import java.util.List;
 
+import java.util.List;
+
 public class DataProfilesGeneralSettingsPage {
     private Button btnNext = new Button("css=input[value='Next']");
     private Button btnFinish = new Button("css=input[value='Finish']");
@@ -31,7 +33,7 @@ public class DataProfilesGeneralSettingsPage {
         cbbItemType.click();
     }
 
-    public List<String> getOptionsInItemType(){
+    public List<String> getAllItemTypes() {
         return cbbItemType.getOptions();
     }
 }
