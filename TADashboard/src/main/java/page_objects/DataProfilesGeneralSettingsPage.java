@@ -29,10 +29,6 @@ public class DataProfilesGeneralSettingsPage {
         btnFinish.click();
     }
 
-    public void clickItemTypeComboBox() {
-        cbbItemType.click();
-    }
-
     public List<String> getAllItemTypes() {
         return cbbItemType.getOptions();
     }
