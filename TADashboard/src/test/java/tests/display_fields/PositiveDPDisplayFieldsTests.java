@@ -18,7 +18,7 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
     private DataProfilesPage dataProfilesPage = new DataProfilesPage();
     private DataProfilesGeneralSettingsPage generalSettingsPage = new DataProfilesGeneralSettingsPage();
     private DataProfilesDisplayFieldsPage displayFieldsPage = new DataProfilesDisplayFieldsPage();
-    private String preconditionDataProfile = "A";
+    private String dataProfileName = "A";
 
     @BeforeMethod(onlyForGroups = "g1")
     public void loginAndAddDataProfile() {
@@ -28,17 +28,17 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
         Logger.step("Navigate to data profile page");
         dataProfilesPage.selectAdministerMenu("Data Profiles");
 
-        if (!dataProfilesPage.isDataProfileVisible(preconditionDataProfile)) {
+        if (!dataProfilesPage.isDataProfileVisible(dataProfileName)) {
             dataProfilesPage.clickAddNewLink();
             Logger.step("Add precondition data profile");
-            generalSettingsPage.createNewProfile(preconditionDataProfile, "test modules", "None");
+            generalSettingsPage.createNewProfile(dataProfileName, "test modules", "None");
         }
     }
 
     @Test(description = "Verify that all fields are pre-fixed with check boxes", groups = "g1")
     public void tc78_AllFieldsArePrefixedWithCheckBoxes() {
         Logger.step("Click data profile A");
-        dataProfilesPage.clickOnDataProfile(preconditionDataProfile);
+        dataProfilesPage.clickOnDataProfile(dataProfileName);
 
         Logger.step("Click Next button");
         generalSettingsPage.clickNextButton();
