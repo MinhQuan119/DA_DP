@@ -6,20 +6,20 @@ import com.logigear.control.common.imp.Link;
 import utils.common.Constants;
 
 public class DataProfilesPage extends BasePage {
-    private CheckBox dynamicCheckboxOfDataProfile = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/preceding-sibling::td/input");
+    private CheckBox dynamicDataProfileCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/preceding-sibling::td/input");
     private Label dynamicDataProfile = new Label("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']");
-    private Link dynamicLinkOfDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/a");
-    private Link dynamicActionOfDataProfile = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/following-sibling::td[@class='center']/a/parent::td");
+    private Link dynamicDataProfileLink = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/a");
+    private Link dynamicDataProfileAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/following-sibling::td[@class='center']/a/parent::td");
     private Link lnkAddNew = new Link("css=div[class='panel_tag2'] a[href='profile.jsp?action=create']");
 
     public String getTextOfAction(String profileName) {
-        dynamicActionOfDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        return dynamicActionOfDataProfile.getText();
+        dynamicDataProfileAction.setDynamicValue(profileName.replace(" ", " "));
+        return dynamicDataProfileAction.getText();
     }
 
     public void clickOnDataProfile(String profileName) {
-        dynamicLinkOfDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        dynamicLinkOfDataProfile.click();
+        dynamicDataProfileLink.setDynamicValue(profileName.replace(" ", " "));
+        dynamicDataProfileLink.click();
     }
 
     public boolean doesDataProfileHasLink(String profileName) {
@@ -28,8 +28,8 @@ public class DataProfilesPage extends BasePage {
     }
 
     public boolean isCheckBoxDisplayed(String profileName) {
-        dynamicCheckboxOfDataProfile.setDynamicValue(profileName.replace(" ", " "));
-        return dynamicCheckboxOfDataProfile.isVisible(Constants.SHORT_TIME_OUT);
+        dynamicDataProfileCheckbox.setDynamicValue(profileName.replace(" ", " "));
+        return dynamicDataProfileCheckbox.isVisible(Constants.SHORT_TIME_OUT);
     }
 
     public void clickAddNewLink() {
