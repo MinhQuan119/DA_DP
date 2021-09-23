@@ -3,6 +3,7 @@ package page_objects;
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.ComboBox;
 import com.logigear.control.common.imp.TextBox;
+
 import java.util.List;
 
 import java.util.List;
@@ -26,7 +27,6 @@ public class DataProfilesGeneralSettingsPage {
         txtName.enter(name);
         cbbItemType.select(type);
         cbbRelatedData.select(relatedData);
-        btnFinish.click();
     }
 
     public List<String> getAllItemTypes() {

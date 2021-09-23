@@ -96,6 +96,7 @@ public class PositiveDPTests extends BaseTest {
         String name = DataHelper.getRandomText();
         dataProfilesPage.clickAddNewLink();
         dataProfilesGeneralSettingPage.createNewProfile(name, "test modules", "None");
+        dataProfilesGeneralSettingPage.clickFinishButton();
 
         Logger.verify(String.format("Verify that in front of %s has a checkbox.", name));
         Assert.assertTrue(dataProfilesPage.isCheckBoxDisplayed(name), "Checkbox is not displayed in front of non-preset data profile.");
