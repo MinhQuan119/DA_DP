@@ -3,7 +3,7 @@ package page_objects;
 import com.logigear.control.common.imp.Button;
 import com.logigear.control.common.imp.ComboBox;
 import com.logigear.control.common.imp.TextBox;
-import java.util.List;
+import utils.common.Constants;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ public class DataProfilesGeneralSettingsPage {
     private ComboBox cbbRelatedData = new ComboBox("id=cbbSubReport");
 
     public void clickNextButton() {
+        btnNext.waitForElementClickable(Constants.SHORT_TIME_OUT);
         btnNext.click();
     }
 
