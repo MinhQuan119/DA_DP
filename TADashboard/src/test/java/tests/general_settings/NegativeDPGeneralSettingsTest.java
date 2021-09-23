@@ -52,6 +52,7 @@ public class NegativeDPGeneralSettingsTest extends BaseTest {
     public void tc070_SpecialCharactersIsNotAllowedForInputToNameField() {
         Logger.step("Add new Data Profile with input special characters into 'Name *' field");
         dataProfilesGeneralSettingsPage.createNewProfile("/:*?<>|\"#[ ]{}=%;", "test modules", "None");
+        dataProfilesGeneralSettingsPage.clickFinishButton();
 
         Logger.verify("Verify that dialog message is displayed as expected");
         Assert.assertEquals(
