@@ -8,7 +8,6 @@ import utils.common.Constants;
 public class DataProfilesPage extends BasePage {
     private CheckBox dynamicDataProfileCheckbox = new CheckBox("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/preceding-sibling::td/input");
     private Label dynamicDataProfile = new Label("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']");
-    private Link dynamicDataProfileLink = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/a");
     private Link dynamicDataProfileAction = new Link("xpath=//table[@class='GridView']/tbody/tr/td[.='%s']/following-sibling::td[@class='center']/a/parent::td");
     private Link lnkAddNew = new Link("css=div[class='panel_tag2'] a[href='profile.jsp?action=create']");
 
@@ -18,8 +17,7 @@ public class DataProfilesPage extends BasePage {
     }
 
     public void clickOnDataProfile(String profileName) {
-        dynamicDataProfileLink.setDynamicValue(profileName.replace(" ", " "));
-        dynamicDataProfileLink.click();
+        dynamicDataProfile.getChildElement(String.format("//table[@class='GridView']/tbody/tr/td[.='%s']/a", profileName.replace(" ", " "))).click();
     }
 
     public boolean doesDataProfileHasLink(String profileName) {
