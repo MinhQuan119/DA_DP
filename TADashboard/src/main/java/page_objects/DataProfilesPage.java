@@ -17,7 +17,8 @@ public class DataProfilesPage extends BasePage {
     }
 
     public void clickOnDataProfile(String profileName) {
-        dynamicDataProfile.getChildElement(String.format("//table[@class='GridView']/tbody/tr/td[.='%s']/a", profileName.replace(" ", " "))).click();
+        dynamicDataProfile.setDynamicValue(profileName.replace(" ", " "));
+        dynamicDataProfile.getChildElement("./a").click();
     }
 
     public boolean doesDataProfileHasLink(String profileName) {
