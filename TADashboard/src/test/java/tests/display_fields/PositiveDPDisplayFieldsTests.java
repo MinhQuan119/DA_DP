@@ -12,7 +12,7 @@ import utils.helper.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PositiveDPDisplayFieldsTest extends BaseTest {
+public class PositiveDPDisplayFieldsTests extends BaseTest {
     DataProfilesDisplayFieldsPage dataProfilesDisplayFieldsPage = new DataProfilesDisplayFieldsPage();
     DataProfilesGeneralSettingsPage dataProfilesGeneralSettingsPage = new DataProfilesGeneralSettingsPage();
     LoginPage loginPage = new LoginPage();
