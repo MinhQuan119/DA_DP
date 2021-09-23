@@ -18,6 +18,7 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
     private DataProfilesPage dataProfilesPage = new DataProfilesPage();
     private DataProfilesGeneralSettingsPage generalSettingsPage = new DataProfilesGeneralSettingsPage();
     private DataProfilesDisplayFieldsPage displayFieldsPage = new DataProfilesDisplayFieldsPage();
+    private String preconditionDataProfile = "A";
 
     @BeforeMethod(onlyForGroups = "g1")
     public void loginAndAddDataProfile() {
@@ -27,22 +28,22 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
         Logger.step("Navigate to data profile page");
         dataProfilesPage.selectAdministerMenu("Data Profiles");
 
-        if (!dataProfilesPage.isDataProfileVisible("A")) {
+        if (!dataProfilesPage.isDataProfileVisible(preconditionDataProfile)) {
             dataProfilesPage.clickAddNewLink();
-            Logger.step("Add data profile name 'A' ");
-            generalSettingsPage.createNewProfile("A", "test modules", "None");
+            Logger.step("Add precondition data profile");
+            generalSettingsPage.createNewProfile(preconditionDataProfile, "test modules", "None");
         }
     }
 
     @Test(description = "Verify that all fields are pre-fixed with check boxes", groups = "g1")
     public void tc78_AllFieldsArePrefixedWithCheckBoxes() {
         Logger.step("Click data profile A");
-        dataProfilesPage.clickOnDataProfile("A");
+        dataProfilesPage.clickOnDataProfile(preconditionDataProfile);
 
         Logger.step("Click Next button");
         generalSettingsPage.clickNextButton();
 
-        List<String> allFields = displayFieldsPage.getAllDisplayFieldsLabels();
+        List<String> allFields = displayFieldsPage.getAllDisplayFields();
         Logger.verify("Verify that all fields are pre-fixed with check boxes");
         for (String field : allFields) {
             Assert.assertTrue(displayFieldsPage.isFieldPrefixedWithCheckBox(field), field + " is not pre-fixed with check box");
