@@ -48,4 +48,23 @@ public class PositiveDPGeneralSettingsTests extends BaseTest {
         Assert.assertTrue(dataProfilesGeneralSettingsPage.getAllItemTypes().equals(listItemTypes),
                 "Data profile types is not displayed in dropdown list as expected");
     }
+
+    @Test(description = "Verify that all data profile types are listed in priority order under 'Item Type' dropped down menu")
+    public void tc073_AllDataProfileTypesAreListed() {
+        List<String> listItemTypes = new ArrayList<>();
+        listItemTypes.add("Test Modules");
+        listItemTypes.add("Test Cases");
+        listItemTypes.add("Test Objectives");
+        listItemTypes.add("Data Sets");
+        listItemTypes.add("Actions");
+        listItemTypes.add("Interface Entities");
+        listItemTypes.add("Test Results");
+        listItemTypes.add("Test Case Results");
+        listItemTypes.add("Test Suites");
+        listItemTypes.add("Bugs");
+
+        Logger.verify("Items are listed in priority order");
+        Assert.assertEquals(dataProfilesGeneralSettingsPage.getAllItemTypes(), listItemTypes,
+                "items are unlisted in priority order");
+    }
 }
