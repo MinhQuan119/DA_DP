@@ -4,6 +4,7 @@ import com.logigear.driver.DriverUtils;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page_objects.DashboardPage;
 import page_objects.DataProfilesPage;
 import page_objects.DataProfilesGeneralSettingsPage;
 import page_objects.LoginPage;
@@ -15,14 +16,15 @@ public class NegativeDPGeneralSettingsTest extends BaseTest {
     DataProfilesGeneralSettingsPage dataProfilesGeneralSettingsPage = new DataProfilesGeneralSettingsPage();
     LoginPage loginPage = new LoginPage();
     DataProfilesPage dataProfilesPage = new DataProfilesPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
     @BeforeMethod
     public void loginAndNavigateToDPGeneralSettingsPage() {
         Logger.step("Login with a valid user");
         loginPage.login(Constants.USERNAME, "");
 
-        Logger.step("Navigate to data profile page");
-        dataProfilesPage.selectAdministerMenu("Data Profiles");
+        Logger.step("Go to Data Profiles page.");
+        dashboardPage.selectAdministerMenu("Data Profiles");
 
         Logger.step("Click Add New link");
         dataProfilesPage.clickAddNewLink();
