@@ -45,7 +45,7 @@ public class PositiveDPDisplayFieldsTests extends BaseTest {
         fieldsOfTestCases.add("URL");
 
         Logger.verify("Verify that all fields are displayed correctly");
-        Assert.assertEquals(dataProfilesDisplayFieldsPage.getTextOfCheckBox(), fieldsOfTestCases,
+        Assert.assertEquals(dataProfilesDisplayFieldsPage.getAllDisplayFieldsLabels(), fieldsOfTestCases,
                 "All fields displayed incorrectly");
     }
 }
